@@ -1,0 +1,35 @@
+{
+  "name": "ewd-examples-2019",
+  "version": "1.0.0",
+  "description": "code examples used in lectures, ewd 2019",
+  "main": "index.js",
+  "scripts": {
+    "test": "npx mocha week11/inclass/testex1/*.js --require babel-core/register --require babel-polyfill && exit(1)",
+    "test2": "npx mocha week11/inclass/testex2/api/contacts/test/*.js --require babel-core/register --require babel-polyfill && exit(1)"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/fxwalsh/ewd-examples-2019.git"
+  },
+  "author": "fxwalsh",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/fxwalsh/ewd-examples-2019/issues"
+  },
+  "homepage": "https://github.com/fxwalsh/ewd-examples-2019#readme",
+  "devDependencies": {
+    "babel-cli": "^6.26.0",
+    "babel-preset-env": "^1.7.0",
+    "mocha": "^6.0.2",
+    "should": "^13.2.3",
+    "should-sinon": "0.0.6",
+    "sinon": "^7.3.1",
+    "sinon-mongoose": "^2.2.1",
+    "sinon-test": "^2.4.0"
+  },
+  "dependencies": {
+    "body-parser": "^1.18.3",
+    "express": "^4.16.4",
+    "mongoose": "^5.4.21"
+  }
+}
