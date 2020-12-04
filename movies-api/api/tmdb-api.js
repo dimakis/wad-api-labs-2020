@@ -21,6 +21,7 @@ export const getMovies = () => {
     .then(json => json.genres);
   };
 
+// the 'b' is missing from the url to simulate a failure
   export const getMovieReviews = id => {
     return fetch(
       `https://api.themoviedb.org/3/movie/${id}/reviews?api_key=${process.env.TMDB_KEY}`
