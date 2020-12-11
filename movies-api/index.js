@@ -4,15 +4,14 @@ import moviesRouter from './api/movies';
 import bodyParser from 'body-parser';
 import './db';
 import { loadUsers } from './seedData'
+import usersRouter from './api/users';
+
 
 dotenv.config();
 
 if (process.env.SEED_DB) {
   loadUsers();
 }
-
-
-
 
 const errHandler = (err, req, res, next) => {
   /* if the error in development then send stack trace to display whole error,
@@ -36,7 +35,8 @@ app.use(bodyParser.urlencoded());
 
 app.use(express.static('public'));
 app.use('/api/movies', moviesRouter);
-
+//users router
+app.use('/api/users', usersRouter);
 // error handling
 app.use(errHandler);
 app.listen(port, () => {
