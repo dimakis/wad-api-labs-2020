@@ -3,17 +3,19 @@ import express from 'express';
 import moviesRouter from './api/movies';
 import bodyParser from 'body-parser';
 import './db';
-import { loadUsers } from './seedData'
 import usersRouter from './api/users';
 import session from 'express-session';
 import passport from './authenticate';
 import genresRouter from './api/genres'
+import { loadUsers, loadMovies } from './seedData';
 
 dotenv.config();
 
 if (process.env.SEED_DB) {
   loadUsers();
+  loadMovies();
 }
+
 
 const errHandler = (err, req, res, next) => {
   /* if the error in development then send stack trace to display whole error,
