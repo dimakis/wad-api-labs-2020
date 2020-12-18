@@ -7,6 +7,7 @@ import { loadUsers } from './seedData'
 import usersRouter from './api/users';
 import session from 'express-session';
 import authenticate from './authenticate';
+import genresRouter from './api/genres'
 
 dotenv.config();
 
@@ -30,21 +31,24 @@ const port = process.env.PORT;
 
 
 
-
-//configure body-parser
-app.use(bodyParser.json());
-app.use(bodyParser.urlencoded());
-
 app.use(session({
   secret: 'ilikecake',
   resave: true,
   saveUninitialized: true
 }));
 
+//configure body-parser
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded());
+
+
 app.use(express.static('public'));
 app.use('/api/movies', authenticate, moviesRouter);
 //users router
 app.use('/api/users', usersRouter);
+
+//genres 
+app.use('/api/genres', genresRouter);
 // error handling
 app.use(errHandler);
 app.listen(port, () => {
